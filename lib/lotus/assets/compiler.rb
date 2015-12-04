@@ -98,6 +98,7 @@ module Lotus
         # but to have it under `tmp/sass-cache'.
         write { Tilt.new(source, nil, load_paths: @configuration.sources.to_a, cache_location: sass_cache_location).render }
       rescue RuntimeError
+        puts source.extname
         puts  @definition.inspect
         puts  @definition.ext
         puts  @_type
