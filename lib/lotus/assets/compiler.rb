@@ -37,6 +37,7 @@ module Lotus
         @configuration = configuration
         @definition    = @configuration.asset(type)
         @name          = name + @definition.ext
+        @_type = type
       end
 
       def compile
@@ -99,6 +100,9 @@ module Lotus
       rescue RuntimeError
         puts  @definition.inspect
         puts  @definition.ext
+        puts  @_type
+        puts @configuration.inspect
+        puts @configuration.asset(type).inspect
         puts "\n\n\n"
         raise UnknownAssetEngine.new(source)
       end
