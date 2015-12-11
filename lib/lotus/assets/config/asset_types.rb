@@ -43,11 +43,13 @@ module Lotus
         private
 
         def extension_lookup(filename)
+          extension = ::File.extname filename.to_s
+
           @types.values.each do |asset_type|
-            return asset_type if filename.match(/#{ asset_type.ext }/)
+            return asset_type if extension == asset_type.ext
           end
 
-          Config::AssetType.new(@prefix) { ext ::File.extname(filename.to_s) }
+          Config::AssetType.new(@prefix) { ext extension }
         end
       end
     end
