@@ -34,7 +34,7 @@ module Lotus
 
           Dir.glob(map {|source| "#{ source }/**/#{ name }*"}).each do |file|
             next if ::File.directory?(file) || ::File.basename(file).match(/\A\_/)
-            result << file
+            result << file.to_s
           end
 
           result
