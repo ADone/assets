@@ -44,6 +44,7 @@ module Lotus
 
         def extension_lookup(filename)
           @types.values.each do |asset_type|
+            next unless asset_type.respond_to? :ext
             return asset_type if filename.match(/#{ asset_type.ext }/)
           end
 

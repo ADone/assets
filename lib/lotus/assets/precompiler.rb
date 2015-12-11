@@ -12,7 +12,7 @@ module Lotus
           config.compile true
 
           config.files.each do |file|
-            Compiler.compile(config, file.to_s, basename(file))
+            Compiler.compile(config, file, basename(file))
           end
         end
       end
